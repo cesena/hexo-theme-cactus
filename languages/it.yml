@@ -1,0 +1,40 @@
+nav:
+  home: Home
+  about: About
+  articles: Posts
+  projects: Progetti
+  search: Cerca
+  contacts: Contatti
+  write-ups: Write-ups
+
+footer:
+  copyright: Copyright
+
+index:
+  find_me_on: Trovaci
+  enum_comma: ','
+  enum_and: e
+  articles: Recenti
+  projects: Progetti
+
+post:
+  desktop:
+    previous: Precedente
+    next: Successivo
+    back_to_top: Vai in cima
+    share: Condividi
+  mobile:
+    menu: Menu
+    toc: TOC
+    back_to_top: Top
+    share: Condividi
+
+search:
+  search: Cerca...
+  no_results: Nessun risultato trovato
+
+pagination:
+  page: Page %d of %d
+
+comments:
+  no_js: Abilita JavaScipt per visualizzare i commenti.

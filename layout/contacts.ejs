@@ -1,0 +1,26 @@
+<h1><%= __('nav.contacts') %></h1>
+<section id="about">
+    <p>
+      <%= __('index.find_me_on') %>
+      <% var nb_links = Object.keys(theme.social_links).length %>
+      <% var i = 0 %>
+      <% for(var link in theme.social_links) { %>
+        <% if (link == 'mail') { %>
+          <a class="icon" target="_blank" href="<%- url_for(theme.social_links[link]) %>">
+            <i class="fas fa-envelope"></i><!--
+      ---></a><!--
+      ---><% } else { %>
+          <a class="icon" target="_blank" href="<%- url_for(theme.social_links[link]) %>">
+            <i class="fab fa-<%= link %>"></i><!--
+      ---></a><!--
+    ---><% } %><!--
+    ---><%= ( nb_links > 0 && i < nb_links-1 ? 
+            ( i == nb_links-2 ? ' '+__('index.enum_and')+' ' 
+            : __('index.enum_comma')+' ' ) 
+            : '.' ) %>
+        <% i+=1 %>
+      <% } %>
+    </p>
+</section>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45804.93367338494!2d12.227444201234889!3d44.14919600142289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132ca4d41ed493c1%3A0xbee0ab1075577a47!2sCesena+FC!5e0!3m2!1sit!2sit!4v1521239702736" width="870" height="550" frameborder="0" style="border:0" allowfullscreen></iframe>

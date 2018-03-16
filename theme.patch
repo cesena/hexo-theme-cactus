@@ -1,0 +1,366 @@
+diff --git a/_config.yml b/_config.yml
+index 10f72e6..d505315 100644
+--- a/_config.yml
++++ b/_config.yml
+@@ -14,8 +14,9 @@ projects_url: http://github.com/probberechts
+ nav:
+   home: /
+   about: /about/
+-  articles: /archives/
+-  projects: projects_url
++  write-ups: /writeups/
++  search: /Search/
++  contacts: /contacts/
+ 
+ 
+ # Links to your social media accounts.
+@@ -23,11 +24,10 @@ nav:
+ # (see https://fontawesome.com/icons?d=gallery&s=brands);
+ # only 'mail' is an exception.
+ social_links:
+-  github: http://github.com/probberechts/cactus-dark
+-  twitter: /
+-  facebook: /
+-  linkedin: /
+-  mail: mailto:name@email.com
++  github: https://github.com/cesena
++  twitter: https://twitter.com/cesenasec
++  facebook: https://www.facebook.com/groups/105136176187559
++  mail: mailto:cesena.team@gmail.com
+ 
+ 
+ # Customize the overview with the most recent blog posts on the index page.
+@@ -53,7 +53,7 @@ posts_overview:
+ logo:
+   enabled: true
+   width: 50
+-  height: 50
++  height: 57
+   url: /images/logo.png
+   gravatar: false
+ 
+@@ -87,7 +87,7 @@ highlight: rainbow
+ colorscheme: dark
+ 
+ # Maximal width of the page in rem units.
+-page_width: 48
++page_width: 58
+ 
+ 
+ ##############################################################################
+@@ -95,7 +95,7 @@ page_width: 48
+ ##############################################################################
+ 
+ # Enable or disable the RSS feed.
+-rss: false
++rss:
+ 
+ # Turn your web pages into graph objects (see http://ogp.me).
+ open_graph: 
+@@ -122,4 +122,4 @@ google_analytics:
+ # Fill in you Gravatar user id / email if you want to use your gravatar as the
+ # logo and/or favicons of you website.
+ gravatar:
+-  email: name@email.com
++  email: cesena.team@gmail.com
+diff --git a/languages/en.yml b/languages/en.yml
+index bfbac07..edbd323 100644
+--- a/languages/en.yml
++++ b/languages/en.yml
+@@ -2,18 +2,19 @@ nav:
+   home: Home
+   about: About
+   articles: Writing
+-  projects: Projects
++  write-ups: Write-ups
+   search: Search
++  contacts: Contacts
+ 
+ footer:
+   copyright: Copyright
+ 
+ index:
+-  find_me_on: Find me on
++  find_me_on: Find us on
+   enum_comma: ','
+   enum_and: and
+-  articles: Writing
+-  projects: Projects
++  articles: Latest
++  write-ups: Write-ups
+ 
+ post:
+   desktop:
+diff --git a/languages/fr.yml b/languages/fr.yml
+deleted file mode 100644
+index 3066018..0000000
+--- a/languages/fr.yml
++++ /dev/null
+@@ -1,38 +0,0 @@
+-nav:
+-  home: Accueil
+-  about: A propos
+-  articles: Articles
+-  projects: Projets
+-  search: Chercher
+-
+-footer:
+-  copyright: Copyright
+-
+-index:
+-  find_me_on: Retrouve moi sur
+-  enum_comma: ','
+-  enum_and: et
+-  articles: Articles
+-  projects: Projets
+-
+-post:
+-  desktop:
+-    previous: Article précédent
+-    next: Article suivant
+-    back_to_top: Retour au début
+-    share: Partager cette article
+-  mobile:
+-    menu: Menu
+-    toc: Table des matière
+-    back_to_top: Début
+-    share: Partager
+-
+-search:
+-  search: chercher...
+-  no_results: Aucun résultat trouvé.
+-
+-pagination:
+-  page: Page %d de %d
+-
+-comments:
+-  no_js: Veuillez activer JavaScript pour voir les réactions.
+diff --git a/languages/nl.yml b/languages/nl.yml
+deleted file mode 100644
+index eb9b0aa..0000000
+--- a/languages/nl.yml
++++ /dev/null
+@@ -1,38 +0,0 @@
+-nav:
+-  home: Home
+-  about: Over mij
+-  articles: Blog
+-  projects: Projecten
+-  search: Zoeken
+-
+-footer:
+-  copyright: Copyright
+-
+-index:
+-  find_me_on: Je vindt me op
+-  enum_comma: ','
+-  enum_and: en
+-  articles: Blogposts
+-  projects: Projecten
+-
+-post:
+-  desktop:
+-    previous: Vorige post
+-    next: Volgende post
+-    back_to_top: Naar boven
+-    share: Deel deze post
+-  mobile:
+-    menu: Menu
+-    toc: Inhoudsopgave
+-    back_to_top: Top
+-    share: Deel
+-
+-search:
+-  search: zoeken...
+-  no_results: Geen resultaten gevonden.
+-
+-pagination:
+-  page: Pagina %d van %d
+-
+-comments:
+-  no_js: Activeer Javascript om de commentaarsectie te kunnen bekijken.
+diff --git a/languages/zh-CN.yml b/languages/zh-CN.yml
+deleted file mode 100644
+index a4c6eac..0000000
+--- a/languages/zh-CN.yml
++++ /dev/null
+@@ -1,38 +0,0 @@
+-nav:
+-  home: 首页
+-  about: 关于
+-  articles: 归档
+-  projects: 项目
+-  search: 搜索
+-
+-footer:
+-  copyright: Copyright
+-
+-index:
+-  find_me_on: Find me on
+-  enum_comma: ','
+-  enum_and: and
+-  articles: 文章
+-  projects: 项目
+-
+-post:
+-  desktop:
+-    previous: 上一篇
+-    next: 下一篇
+-    back_to_top: 返回顶部
+-    share: 分享文章
+-  mobile:
+-    menu: 菜单
+-    toc: 目录
+-    back_to_top: 返回顶部
+-    share: 分享
+-
+-search:
+-  search: 搜索...
+-  no_results: 抱歉，没有符合您搜索条件的结果。请换其它关键词再试。
+-
+-pagination:
+-  page: Page %d of %d
+-
+-comments:
+-  no_js: 加载评论需要在浏览器启用 JavaScript 脚本支持。
+diff --git a/layout/_partial/header.ejs b/layout/_partial/header.ejs
+index 0d4536c..642c149 100644
+--- a/layout/_partial/header.ejs
++++ b/layout/_partial/header.ejs
+@@ -9,6 +9,7 @@
+   <% } %>
+     <div id="title">
+       <h1><%= config.title %></h1>
++      <p>&#8627; <%= config.subtitle %> &#x25AE;</p>
+     </div>
+   </a>
+   <div id="nav">
+diff --git a/source/css/_colors/dark.styl b/source/css/_colors/dark.styl
+index f168852..2ebe407 100644
+--- a/source/css/_colors/dark.styl
++++ b/source/css/_colors/dark.styl
+@@ -1,4 +1,5 @@
+ $color-background = #1d1f21
++$color-background = #212121
+ $color-footer-mobile-1 = lighten($color-background, 2%)
+ $color-footer-mobile-2 = lighten($color-background, 10%)
+ $color-background-code = lighten($color-background, 2%)
+@@ -6,6 +7,7 @@ $color-border = #666
+ $color-meta = #666
+ $color-meta-code = #666
+ $color-link = rgba(212, 128, 170, 1)
++$color-link = rgba(197, 239, 247, 1)
+ $color-text = #c9cacc
+ $color-accent-3 = #cccccc
+ $color-accent-2 = #eeeeee
+diff --git a/source/css/_fonts.styl b/source/css/_fonts.styl
+index 09bd84f..c683412 100644
+--- a/source/css/_fonts.styl
++++ b/source/css/_fonts.styl
+@@ -2,3 +2,15 @@
+   font-style: normal
+   font-family: "Meslo LG"
+   src: local("Meslo LG S"), url("../lib/meslo-LG/MesloLGS-Regular.ttf") format("truetype")
++
++@font-face
++  font-family: 'Roboto'
++  font-style: normal
++  font-weight: 400
++  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype')
++
++@font-face 
++  font-family: 'Raleway'
++  font-style: normal
++  font-weight: 400
++  src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v12/1Ptug8zYS_SKggPNyC0ISg.ttf) format('truetype')
+diff --git a/source/css/_partial/header.styl b/source/css/_partial/header.styl
+index 84aafd5..29b338d 100644
+--- a/source/css/_partial/header.styl
++++ b/source/css/_partial/header.styl
+@@ -66,7 +66,7 @@
+ 
+         a
+           margin-right: 0
+-
++    
+ #header:hover
+   #logo
+     filter: none
+@@ -76,7 +76,7 @@
+   #header #title
+     padding-top: ($logo-height / 2) - 16
+     padding-bottom: ($logo-height / 2) - 16
+-
++  
+   #header #nav
+     ul
+       a:hover
+diff --git a/source/css/_partial/index.styl b/source/css/_partial/index.styl
+index 4de428e..706b9cf 100644
+--- a/source/css/_partial/index.styl
++++ b/source/css/_partial/index.styl
+@@ -1,5 +1,6 @@
+ .post-list
+   padding: 0
++  font-family: $font-family-mono
+ 
+   .post-item
+     margin-bottom: 1rem
+diff --git a/source/css/_partial/post/actions_desktop.styl b/source/css/_partial/post/actions_desktop.styl
+index 406ee27..02850e3 100644
+--- a/source/css/_partial/post/actions_desktop.styl
++++ b/source/css/_partial/post/actions_desktop.styl
+@@ -1,4 +1,5 @@
+ #header-post
++  font-family: $font-family-mono
+   position: fixed
+   top: 2rem
+   right: 0
+diff --git a/source/css/_variables.styl b/source/css/_variables.styl
+index 5f75d67..13877e3 100644
+--- a/source/css/_variables.styl
++++ b/source/css/_variables.styl
+@@ -1,8 +1,8 @@
+ // Fonts
+-$font-family-body = "Menlo", "Meslo LG", monospace
++$font-family-body = "Raleway"
+ $font-family-mono = "Menlo", "Meslo LG", monospace
+ $font-family-tt = "Inconsolata", monospace
+-$font-size = 14px
++$font-size = 1em
+ $line-height = 1.725
+ $page-width = 0rem + (hexo-config("page_width") || 39)
+ // Logo
+diff --git a/source/css/style.styl b/source/css/style.styl
+index f76cfe6..d371a6a 100644
+--- a/source/css/style.styl
++++ b/source/css/style.styl
+@@ -16,6 +16,9 @@ html
+   -webkit-text-size-adjust: 100%
+   -ms-text-size-adjust: 100%
+ 
++header
++  font-family: $font-family-mono
++
+ body
+   display: flex
+   flex-direction: column
+@@ -181,3 +184,6 @@ code
+ 
+   .line
+     height: 22px
++
++#about
++  font-family: $font-family-mono
+diff --git a/source/images/apple-touch-icon.png b/source/images/apple-touch-icon.png
+index cb2dfbb..4b1ec69 100644
+Binary files a/source/images/apple-touch-icon.png and b/source/images/apple-touch-icon.png differ
+diff --git a/source/images/favicon-192x192.png b/source/images/favicon-192x192.png
+index 899779b..7c88108 100644
+Binary files a/source/images/favicon-192x192.png and b/source/images/favicon-192x192.png differ
+diff --git a/source/images/favicon.ico b/source/images/favicon.ico
+index 84a85d3..0f5ce29 100644
+Binary files a/source/images/favicon.ico and b/source/images/favicon.ico differ
+diff --git a/source/images/logo.png b/source/images/logo.png
+index 43a6ef0..1ea849a 100644
+Binary files a/source/images/logo.png and b/source/images/logo.png differ

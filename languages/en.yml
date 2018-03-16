@@ -2,18 +2,19 @@ nav:
   home: Home
   about: About
   articles: Writing
-  projects: Projects
+  write-ups: Write-ups
   search: Search
+  contacts: Contacts
 
 footer:
   copyright: Copyright
 
 index:
-  find_me_on: Find me on
+  find_me_on: Find us on
   enum_comma: ','
   enum_and: and
-  articles: Writing
-  projects: Projects
+  articles: Latest
+  write-ups: Write-ups
 
 post:
   desktop:
