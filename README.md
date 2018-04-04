@@ -2,8 +2,6 @@
 
 A responsive, clean and simple [Hexo](http://hexo.io) theme for a personal website.
 
-![screenshot](https://docs.google.com/uc?id=1K66bccwr4z9TgJev0AzCqbI7BxzVr7md)
-
 ![](https://i.imgur.com/zAVgLY6.gif)
 
 ## Summary
@@ -37,7 +35,7 @@ A responsive, clean and simple [Hexo](http://hexo.io) theme for a personal websi
 1. In the `root` directory:
 
     ```git
-    $ git clone https://github.com/probberechts/hexo-theme-cactus.git themes/cactus
+    $ git submodule add https://github.com/probberechts/hexo-theme-cactus.git themes/cactus
     ```
 
 2. Change the `theme` property in the `config.yml` file.
