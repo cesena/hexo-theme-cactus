@@ -3,6 +3,9 @@
         <a class="<%= class_name %>" href="<%- url_for(post.link) %>" target="_blank" itemprop="url"><%= post.title %></a>
     <% } else if (post.title) { %>
         <a class="<%= class_name %>" href="<%- url_for(post.path) %>"><%= post.title %></a>
+        <% if (post.author) { %>
+            <h5><%= post.author %></h5>
+        <% } %>
     <% } else { %>
         <a class="<%= class_name %>" href="<%- url_for(post.path) %>">Untitled</a>
     <% } %>
