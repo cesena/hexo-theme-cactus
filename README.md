@@ -1,6 +1,6 @@
 # Cactus
 
-A responsive, clean and simple [Hexo](http://hexo.io) theme for a personal website.
+A responsive, clean and simple [Hexo](http://hexo.io) theme for <https://cesena.ing2.unibo.it/>
 
 ![](https://i.imgur.com/zAVgLY6.gif)
 
