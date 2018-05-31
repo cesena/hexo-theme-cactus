@@ -7,6 +7,7 @@ nav:
   search: Search
   contacts: Contacts
   feed: Feed
+  events: Events
 
 footer:
   copyright: Copyright
@@ -17,6 +18,7 @@ index:
   enum_and: and
   articles: Latest
   write-ups: Write-ups
+  events: Events
 
 post:
   desktop:

@@ -8,6 +8,7 @@ nav:
   write-ups: Write-ups
   archive: Archivio
   feed: Feed
+  events: Eventi
 
 footer:
   copyright: Copyright
@@ -18,6 +19,10 @@ index:
   enum_and: e
   articles: Recenti
   projects: Progetti
+  events: Eventi
+  write-ups: Write-ups
+  search: Cerca
+  archive: Archivio
 
 post:
   desktop:

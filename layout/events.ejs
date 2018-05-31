@@ -1,0 +1,17 @@
+<section id="writing">
+  <span class="h1"><a href="<%- url_for("events") %>"><%= __('index.events') %></a></span>
+  <ul class="post-list">
+    <% var show_posts = site.posts.sort('date', 'desc') %>
+    <% show_posts.each(function(post, i){ %>
+        <% if (post.categories.filter(p => p.name === "event").length > 0) { %>
+          <li class="post-item">
+            <%- partial('_partial/post/date', { post: post, class_name: 'meta' }) %>
+            <span><%- partial('_partial/post/title', { post: post, index: true, class_name: '' }) %></span>
+          </li>
+        <% } %>
+    <% }); %>
+  </ul>
+  <% if (theme.show_all_posts) { %>
+    <%- partial('_partial/pagination') %>
+  <% } %>
+</section>
