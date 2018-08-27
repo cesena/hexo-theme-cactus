@@ -16,9 +16,11 @@ index:
   find_me_on: Find us on
   enum_comma: ','
   enum_and: and
-  articles: Latest
+  articles: Posts
   write-ups: Write-ups
   events: Events
+  topics: Topics
+  most_recent: Latests
 
 post:
   desktop:

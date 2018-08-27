@@ -17,12 +17,14 @@ index:
   find_me_on: Trovaci
   enum_comma: ','
   enum_and: e
-  articles: Recenti
+  articles: Post
   projects: Progetti
   events: Eventi
   write-ups: Write-ups
   search: Cerca
   archive: Archivio
+  topics: Topics
+  most_recent: Recenti
 
 post:
   desktop:
