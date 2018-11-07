@@ -11,6 +11,8 @@ global-reset()
   box-sizing: border-box
 
 html
+  margin: 0
+  padding: 0
   height: 100%
   border-top: 2px solid $color-text
   -webkit-text-size-adjust: 100%
@@ -20,8 +22,7 @@ header
   font-family: $font-family-mono
 
 body
-  display: flex
-  flex-direction: column
+  height: 100%
   background-color: $color-background
   color: $color-text
   font-display: swap // @stylint ignore
@@ -30,13 +31,17 @@ body
   font-family: $font-family-body
   line-height: $line-height
   text-rendering: geometricPrecision
+  flex: 1
 
   antialias()
 
-.content
-  flex: 1
-
   @extend $base-style
+
+.content
+  position: relative
+  display: flex
+  flex-direction: column
+  min-height: 100%
 
   p
     hyphens(auto)
@@ -116,6 +121,8 @@ body
 @import "_partial/footer"
 @import "_partial/pagination"
 @import "_partial/search"
+@import "_partial/tags"
+@import "_partial/categories"
 // Code
 @import "_highlight/" + $highlight
 
