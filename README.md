@@ -1,6 +1,6 @@
 # Cactus
 
-A responsive, clean and simple [Hexo](http://hexo.io) theme for <https://cesena.ing2.unibo.it/>
+A responsive, clean and simple [Hexo](http://hexo.io) theme for <https://cesena.github.io/>
 
 ![](https://i.imgur.com/zAVgLY6.gif)
 
